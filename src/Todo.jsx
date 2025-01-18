@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+
 export default function Todo() {
 
     const [title, setTitle] = useState("");
@@ -8,7 +9,7 @@ export default function Todo() {
     const [error, Seterror] = useState("");
     const [message, setMessage] = useState("");
     const [editingId, setEditingId] = useState(-1);
-    const api_url = process.env.REACT_APP_API_URL;
+    const api_url = import.meta.env.VITE_API_URL;
 
     //editing states
 
@@ -147,7 +148,7 @@ export default function Todo() {
                 <h3>Tasks</h3>
                 <ul className="list-group">
                     {todo.map((item) =>
-                        <li className="list-group-item bg-info d-flex justify-content-between align-items-center my-2" >
+                        <li className="list-group-item bg-info d-flex justify-content-between align-items-center my-2" key={item._id} >
                             <div className="d-flex flex-column me-2">
                                 {
                                     editingId === -1 || editingId!== item._id ?   <>
